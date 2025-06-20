@@ -5,7 +5,9 @@ const conn = require('../database');
 router.get('/dogs', function(req, res, next) {
   const [rows] = conn.execute('SELECT * FROM Dogs');
   res.send(rows.map((row) => ({
-    dog_name 
+    dog_name: row.dog_name,
+    size: row.size,
+    row:
   })))
 });
 
