@@ -84,6 +84,14 @@
           error,
           applyToWalk
         };
+      },
+      methods: {
+        async logout() {
+          const res = await fetch('/api/users/logout', { method: 'POST' });
+          if (res.ok) {
+            window.location.replace('index.html');
+          }
+        }
       }
     }).mount('#app');
   </script>
