@@ -22,7 +22,8 @@ VALUES (LAST_INSERT_ID(), 'Max', 'medium');
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES (LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open')
 COMMIT;
-/* bobwalker */
+
+
 BEGIN TRANSACTION;
 INSERT INTO Users (username, email, password_hash, role)
 VALUES (alice123, alice@example.com, hashed123, 'owner');
@@ -31,5 +32,3 @@ VALUES (LAST_INSERT_ID(), 'Max', 'medium');
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES (LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open')
 COMMIT;
-
-/* carol123 */
