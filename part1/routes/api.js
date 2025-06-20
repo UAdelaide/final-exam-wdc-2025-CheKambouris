@@ -63,7 +63,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS walker_username,
       SUM(rating) AS total_ratings,
       AVG(rating) as average_rating,
-      WalkRequests.duration_minutes,
+      COUNT(),
       WalkRequests.location,
       Users.username AS owner_username
     FROM Users
