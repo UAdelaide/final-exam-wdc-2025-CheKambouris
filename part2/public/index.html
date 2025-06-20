@@ -48,7 +48,7 @@
             }
           });
           if(res.ok) {
-            const user = 
+            const resBody = await res.json();
             window.location.replace(`${}`);
           }
         }
