@@ -50,7 +50,7 @@ let db;
           ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');`
 );
     }
-  [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+  [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows[0].count === 0) {
       await db.execute(
       `INSERT INTO WalkRequests
