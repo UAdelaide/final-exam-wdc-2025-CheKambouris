@@ -3,15 +3,19 @@ var router = express.Router();
 const pool = require('../database');
 
 router.get('/dogs', async function(req, res, next) {
-  const [rows] = await pool.query(
-    `SELECT
-      Dogs.name AS dog_name,
-      Dogs.size,
-      Users.username AS owner_username
-    FROM Dogs
-    INNER JOIN Users
-    ON Dogs.owner_id = Users.user_id;`
-  );
+  try {
+    const [rows] = await pool.query(
+      `SELECT
+        Dogs.name AS dog_name,
+        Dogs.size,
+        Users.username AS owner_username
+      FROM Dogs
+      INNER JOIN Users
+      ON Dogs.owner_id = Users.user_id;`
+    );
+  } catch (err) {
+    
+  }
   res.send(rows);
 });
 
