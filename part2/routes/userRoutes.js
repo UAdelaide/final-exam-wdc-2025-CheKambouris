@@ -60,10 +60,9 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
-  if (condition) {
-    
+  if (req.session.user) {
+    req.session.user = undefined;
   }
-  req.session.user = undefined;
   res.send(200);
 });
 
