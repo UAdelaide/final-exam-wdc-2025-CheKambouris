@@ -131,7 +131,7 @@
         async logout() {
           const res = await fetch('/api/users/logout', {method: 'POST'});
           if (res.ok) {
-            window.location.replace()
+            window.location.replace('index.html');
           }
         }
       }
