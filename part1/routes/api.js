@@ -4,7 +4,9 @@ const conn = require('../database');
 
 router.get('/dogs', function(req, res, next) {
   const [rows] = conn.execute(
-    `SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username FROM Dogs`
+    `SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username
+    FROM Dogs
+    INNER JOIN Users`
 );
   res.send(rows.map((row) => ({
     dog_name: row.dog_name,
