@@ -58,7 +58,7 @@
       setup() {
         async function getDogs() {
           const res = await fetch('/api/dogs');
-          const 
+          this.dogs = await res.json();
         }
         onMounted(() => {
           getDogs();
