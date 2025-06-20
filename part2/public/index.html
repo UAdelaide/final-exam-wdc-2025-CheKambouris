@@ -38,7 +38,10 @@
       methods: {
         login() {
           fetch('/api/users/login', {
-            body: { username: this.username, password: this.password },
+            body: {
+              username: this.username,
+              password: this.password
+            },
           })
         }
       }
