@@ -21,7 +21,7 @@
       <button class="btn btn-outline-primary me-2" type="submit">Login</button>
     </form>
     <h1>All Registered Dogs</h1>
-        <div></div>
+        <div>{{dogs[0] ?? .name}}</div>
         <div v-for="dog in dogs">
           <div>{{ dog.dog_id }}</div>
           <div>{{ dog.name }}</div>
