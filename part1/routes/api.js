@@ -60,7 +60,7 @@ Sample Response:
 router.get('/walkers/summary', async function(req, res, next) {
   const [rows] = await pool.query(
     `SELECT
-      Users.request_id,
+      Users.username AS walker_username,
       Dogs.name AS dog_name,
       WalkRequests.requested_time,
       WalkRequests.duration_minutes,
