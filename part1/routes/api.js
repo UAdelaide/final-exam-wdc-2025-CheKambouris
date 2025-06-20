@@ -48,7 +48,7 @@ router.get('/walkrequests/open', async function(req, res, next) {
   );
   res.send(rows.map((row) => ({
     
-    })));
+  })));
 });
 
 router.get('/walkers/summary', function(req, res, next) {
