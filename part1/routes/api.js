@@ -68,7 +68,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS owner_username
     FROM Users
     INNER JOIN Dogs
-      ON Dogs.owner_id = Users.user_id
+      ON WalkRatings.walker_id = Users.user_id
     WHERE WalkRequests.status = 'open';`
   );
   res.send(rows);
