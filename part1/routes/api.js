@@ -36,8 +36,16 @@ Sample Response:
   }
 ]
  */
-router.get('/walkrequests/open', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/walkrequests/open', async function(req, res, next) {
+  const [rows] = await pool.query(
+    `SELECT
+      Dogs.name AS dog_name,
+      Dogs.size,
+      Users.username AS owner_username
+    FROM Requests
+    INNER JOIN Users
+    ON Dogs.owner_id = Users.user_id;`
+  );
 });
 
 router.get('/walkers/summary', function(req, res, next) {
