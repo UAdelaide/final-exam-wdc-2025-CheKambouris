@@ -45,7 +45,7 @@
 
 
   <script>
-    const { createApp, onMounted } = Vue;
+    const { createApp, onMounted, ref } = Vue;
     createApp({
       data() {
         return {
@@ -61,6 +61,7 @@
           this.dogs = await res.json();
           console.log(this.dogs);
         });
+        return {dogs};
       },
       methods: {
         async login() {
