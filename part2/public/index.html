@@ -49,13 +49,13 @@
     createApp({
       data() {
         return {
-          dogs: [],
           message: 'Welcome to the Dog Walking Service!',
           username: '',
           password: ''
         };
       },
       setup() {
+        const dogs = ref([]);
         onMounted(async () => {
           const res = await fetch('/api/dogs');
           this.dogs = await res.json();
