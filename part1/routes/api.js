@@ -44,44 +44,26 @@ router.get('/walkrequests/open', async function(req, res, next) {
   }
 });
 
-/**
-/api/walkers/summary
-
-Return a summary of each walker with their average rating and number of completed walks.
-
-Sample Response:
-
-[
-  {
-    "walker_username": "bobwalker",
-    "total_ratings": 2,
-    "average_rating": 4.5,
-    "completed_walks": 2
-  },
-  {
-    "walker_username": "newwalker",
-    "total_ratings": 0,
-    "average_rating": null,
-    "completed_walks": 0
-  }
-]
-
- */
 router.get('/walkers/summary', async function(req, res, next) {
-  const [rows] = await pool.query(
-    `SELECT
-      Users.username AS walker_username,
-      (SELECT SUM(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) AS total_ratings,
-      (SELECT AVG(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) as average_rating,
-      (SELECT COUNT(*) FROM WalkApplications
-        INNER JOIN WalkRequests
-        ON WalkApplications.request_id = WalkRequests.request_id
-        WHERE WalkApplications.status = 'accepted' AND WalkRequests.status = 'completed'
-      ) as completed_walks
-    FROM Users
-    WHERE Users.role = 'walker';` // Implicit if there was a constraint
-  );
-  res.send(rows);
+  try {
+    const [rows] = await pool.query(
+      `SELECT
+        Users.username AS walker_username,
+        (SELECT SUM(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) AS total_ratings,
+        (SELECT AVG(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) as average_rating,
+        (SELECT COUNT(*) FROM WalkApplications
+          INNER JOIN WalkRequests
+          ON WalkApplications.request_id = WalkRequests.request_id
+          WHERE WalkApplications.status = 'accepted' AND WalkRequests.status = 'completed'
+        ) as completed_walks
+      FROM Users
+      WHERE Users.role = 'walker';` // Implicit if there was a constraint
+    );
+    res.send(rows);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
 });
 
 module.exports = router;
