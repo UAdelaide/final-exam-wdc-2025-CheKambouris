@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
         Users.username AS owner_username
       FROM Dogs
       INNER JOIN Users
-      ON Dogs.owner_id = Users.user_id;`
+      ON Dogs.owner_id = ?;`,
+      req.session.user.
     );
     res.json(rows);
   } catch (err) {
