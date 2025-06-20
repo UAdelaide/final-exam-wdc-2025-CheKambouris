@@ -42,7 +42,7 @@ router.get('/walkrequests/open', async function(req, res, next) {
     INNER JOIN Users
       ON WalkRequests.owner_id = Users.user_id
     INNER JOIN Dogs
-      ON WalkRequests.dog_id = ;`
+      ON WalkRequests.dog_id = Dogs.dog_id;`
   );
   res.send(rows);
 });
