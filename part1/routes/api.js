@@ -4,9 +4,9 @@ const conn = require('../database');
 
 router.get('/dogs', function(req, res, next) {
   const [rows] = conn.execute('SELECT * FROM Dogs');
-  res.send(rows.map((row) => {
-  
-  }))
+  res.send(rows.map((row) => ({
+    dog_name 
+  })))
 });
 
 router.get('/walkrequests/open', function(req, res, next) {
