@@ -1,6 +1,6 @@
 const mysql = require('mysql2/promise');
 
-let db;
+let conn;
 
 async function connectToDatabase() {
   // Connect to MySQL without specifying a database
@@ -21,7 +21,7 @@ async function connectToDatabase() {
     database: 'DogWalkService'
   });
 }
-async function insertData(db) {
+async function setupDatabase(db) {
 }
 
 async function insertData(db) {
@@ -71,13 +71,13 @@ async function insertData(db) {
 
 (async () => {
   try {
-    db = await connectToDatabase();
-    await setupDatabase(db);
-    await insertData(db);
+    conn = await connectToDatabase();
+    await setupDatabase(conn);
+    await insertData(conn);
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
 })();
 
-module.exports = db;
+module.exports = conn;
