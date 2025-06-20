@@ -57,7 +57,8 @@
       },
       setup() {
         async function getDogs() {
-
+          const res = await fetch('/api/dogs');
+          const 
         }
         onMounted(() => {
           getDogs();
