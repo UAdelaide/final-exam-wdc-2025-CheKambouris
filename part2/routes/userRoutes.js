@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
   if (req.session.user) {
-    req.session.user = undefined;
+    req.session.destroy();
   }
   res.send(200);
 });
