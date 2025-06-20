@@ -12,11 +12,7 @@ router.get('/dogs', async function(req, res, next) {
     INNER JOIN Users
     ON Dogs.owner_id = Users.user_id;`
   );
-  res.send(rows.map((row) => ({
-    dog_name: row.dog_name,
-    size: row.size,
-    owner_username: row.owner_username
-  })));
+  res.send(rows);
 });
 
 /**
@@ -46,14 +42,7 @@ router.get('/walkrequests/open', async function(req, res, next) {
     INNER JOIN Users
     ON WalkRequests.owner_id = Users.user_id;`
   );
-  res.send(rows.map((row) => ({
-    request_id: row.request_id,
-    dog_name: row.dog_name,
-    requested_time: row.requested_time
-    duration_minutes:
-    location:
-    owner_username:
-  })));
+  res.send(rows);
 });
 
 router.get('/walkers/summary', function(req, res, next) {
