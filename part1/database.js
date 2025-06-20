@@ -2,31 +2,6 @@ const mysql = require('mysql2/promise');
 
 let db;
 
-(async () => {
-  try {
-    // Connect to MySQL without specifying a database
-    const connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '' // Set your MySQL root password
-    });
-
-    // Assume that the database has been setup
-
-    // Now connect to the created database
-    db = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'DogWalkService'
-    });
-  await insertData();
-
-  } catch (err) {
-    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
-  }
-})();
-
 async function insertData() {
   // Insert data if table is empty
     let [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
@@ -71,5 +46,15 @@ async function insertData() {
 );
     }
 }
+
+(async () => {
+  try {
+    
+  await insertData();
+
+  } catch (err) {
+    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+  }
+})();
 
 module.exports = db;
