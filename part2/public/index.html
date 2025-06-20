@@ -21,14 +21,6 @@
       <button class="btn btn-outline-primary me-2" type="submit">Login</button>
     </form>
     <h1>All Registered Dogs</h1>
-        <div>{{dogs}}</div>
-        <div v-for="dog in dogs">
-          <div>{{ dog.dog_id }}</div>
-          <div>{{ dog.name }}</div>
-          <div>{{ dog.size }}</div>
-          <div>{{ dog.owner_id }}</div>
-          <div><img src="https://dog.ceo/api/breeds/image/random" alt=""></div>
-        </div>
     <table>
       <thead>
         <tr>
@@ -40,6 +32,13 @@
         </tr>
       </thead>
       <tbody>
+      <div v-for="dog in dogs">
+        <div>{{ dog.dog_id }}</div>
+        <div>{{ dog.name }}</div>
+        <div>{{ dog.size }}</div>
+        <div>{{ dog.owner_id }}</div>
+        <div><img src="https://dog.ceo/api/breeds/image/random" alt=""></div>
+      </div>
       </tbody>
     </table>
   </div>
