@@ -54,7 +54,7 @@ async function insertData(db) {
 (async () => {
   try {
     // Assume database has been initialised using the dogwalks.sql
-    await insertData(pool.getConnection());
+    await insertData();
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
