@@ -14,7 +14,9 @@ router.get('/dogs', async function(req, res, next) {
       ON Dogs.owner_id = Users.user_id;`
     );
   } catch (err) {
-    
+    console.log(err);
+    res.sendStatus(500);
+    return;
   }
   res.send(rows);
 });
