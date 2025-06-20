@@ -22,7 +22,7 @@ async function connectToDatabase() {
   });
 }
 
-async function insertData() {
+async function insertData(db) {
   // Insert data if table is empty
     let [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
@@ -69,8 +69,8 @@ async function insertData() {
 
 (async () => {
   try {
-    await connectToDatabase();
-    await insertData();
+    db = await connectToDatabase();
+    await insertData(db);
 
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
