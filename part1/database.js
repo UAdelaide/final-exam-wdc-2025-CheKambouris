@@ -4,7 +4,7 @@ let pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: '', // Set your MySQL root password
-  database: ''
+  database: 'DogWalkService'
 });
 
 async function insertData() {
