@@ -46,7 +46,9 @@ VALUES
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');`);
-  `INSERT INTO WalkRequests
+  [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    if (rows[0].count === 0) {
+      await db.execute(`INSERT INTO WalkRequests
 	(dog_id, requested_time, duration_minutes, location, status)
 VALUES
 	((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10T08:00:00', 30, 'Parklands', 'open'),
