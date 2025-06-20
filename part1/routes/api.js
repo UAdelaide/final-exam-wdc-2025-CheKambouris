@@ -66,7 +66,8 @@ router.get('/walkers/summary', async function(req, res, next) {
       (SELECT COUNT(*) FROM WalkApplications
         INNER JOIN WalkRequests
         ON WalkApplications.request_id = WalkRequests.request_id
-        WHERE WalkApplications.) as completed_walks
+        WHERE WalkApplications.status = 'accepted'
+          ) as completed_walks
     FROM Users
     WHERE Users.role = 'walker';` // Implicit if there was a constraint
   );
