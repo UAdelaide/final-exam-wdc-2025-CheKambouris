@@ -13,12 +13,12 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-    <form>
+    <form @submit.prevent="login">
       <label for="username">Username</label><br>
       <input type="text" name="username" id="username"><br>
       <label for="password">Password</label><br>
       <input type="password" name="password" id="password"><br>
-      <button @submit.prevent="login" class="btn btn-outline-primary me-2" type="submit">Login</button>
+      <button class="btn btn-outline-primary me-2" type="submit">Login</button>
     </form>
 
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
