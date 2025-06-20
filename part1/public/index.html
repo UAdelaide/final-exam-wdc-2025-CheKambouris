@@ -16,8 +16,9 @@
 const { createApp, onMounted } = Vue;
 createApp({
     setup() {
+        const dog_img = ref()
         onMounted(async () => {
-            await
+            const dog_img.value = await
         });
         return {}
     }
