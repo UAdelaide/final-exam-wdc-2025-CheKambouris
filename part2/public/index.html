@@ -33,11 +33,11 @@
       </thead>
       <tbody>
         <tr v-for="dog in dogs">
-        <th>{{ dog.dog_id }}</th>
-        <th>{{ dog.name }}</th>
-        <th>{{ dog.size }}</th>
-        <th>{{ dog.owner_id }}</th>
-        <th><img width="auto" height="200" :src="dog.img" alt=""></th>
+          <th scope="row">{{ dog.dog_id }}</th>
+          <th>{{ dog.name }}</th>
+          <th>{{ dog.size }}</th>
+          <th>{{ dog.owner_id }}</th>
+          <th><img width="auto" height="200" :src="dog.img" alt=""></th>
       </tr>
       </tbody>
     </table>
