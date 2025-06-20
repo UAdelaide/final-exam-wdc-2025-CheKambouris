@@ -27,7 +27,7 @@ app.use('/api/dogs', async (req, res, next) => {
     const [rows] = await db.query(
       `SELECT
         Dogs.*,
-        Users.user_id
+        Users.user_id as owner_id
       FROM Dogs
       INNER JOIN Users
       ON Dogs.owner_id = Users.user_id;`
