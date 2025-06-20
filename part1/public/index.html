@@ -18,10 +18,7 @@ const { createApp, onMounted, ref } = Vue;
 createApp({
     setup() {
         const dog_img = ref('');
-        onMounted(async () => {
-            const res = await fetch('https://dog.ceo/api/breeds/image/random');
-            dog_img.value = (await res.json()).message;
-        });
+        onMounted(this.updateDogImg);
         return {
             dog_img
         };
