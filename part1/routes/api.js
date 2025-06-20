@@ -37,7 +37,8 @@ router.get('/walkrequests/open', async function(req, res, next) {
     `SELECT
       WalkRequests.request_id,
       Dogs.name AS dog_name,
-      Users.requested_time AS owner_username
+      WalkRequests.requested_time,
+      WalkRequests.duration_minutes,
     FROM WalkRequests
     INNER JOIN Users
       ON WalkRequests.owner_id = Users.user_id
