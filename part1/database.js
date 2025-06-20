@@ -37,7 +37,7 @@ let db;
 );
     }
 
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
       await db.execute(
       `INSERT INTO
