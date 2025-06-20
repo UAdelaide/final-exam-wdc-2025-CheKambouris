@@ -19,6 +19,22 @@ router.get('/dogs', async function(req, res, next) {
   })));
 });
 
+/**
+Return all open walk requests, including the dog name, requested time, location, and owner's username.
+
+Sample Response:
+
+[
+  {
+    "request_id": 1,
+    "dog_name": "Max",
+    "requested_time": "2025-06-10T08:00:00.000Z",
+    "duration_minutes": 30,
+    "location": "Parklands",
+    "owner_username": "alice123"
+  }
+]
+ */
 router.get('/walkrequests/open', function(req, res, next) {
   res.send('respond with a resource');
 });
