@@ -4,7 +4,7 @@ const pool = require('../database');
 
 router.get('/dogs', async function(req, res, next) {
   const [rows] = await pool.query(
-    `SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username
+    `SELECT Dogs.name, Dogs.size, User.username AS owner_username
     FROM Dogs
     INNER JOIN Users
     ON Dogs.owner_id = Users.user_id;`
