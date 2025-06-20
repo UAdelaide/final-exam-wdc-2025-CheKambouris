@@ -5,7 +5,8 @@ const db = require('../models/db');
 // GET user dogs
 router.get('/', async (req, res) => {
   if (req.session.user) {
-
+    db.execute('');
+  } else {
+    res.send(401);
   }
-  
 });
