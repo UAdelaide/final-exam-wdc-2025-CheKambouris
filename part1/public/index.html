@@ -16,7 +16,9 @@
 const { createApp, onMounted } = Vue;
 createApp({
     setup() {
-        onMounted();
+        onMounted(async () => {
+            await
+        });
         return {}
     }
 }).mount('#app');
