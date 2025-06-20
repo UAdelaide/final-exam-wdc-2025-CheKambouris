@@ -21,7 +21,9 @@ createApp({
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
             dog_img.value = (await res.json()).message;
         });
-        return {}
+        return {
+            dog_img
+        };
     }
 }).mount('#app');
 </script>
