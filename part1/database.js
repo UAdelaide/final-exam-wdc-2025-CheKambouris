@@ -26,26 +26,27 @@ let db;
     let [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
       await db.execute(`
-INSERT INTO Users
-  (username, email, password_hash, role)
-VALUES
-  ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-  ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-  ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-  ('sploot', 'spoot@example.com', 'supersecure', 'walker'),
-  ('edgar', 'edgar@allen.poe', 'raven333', 'walker');`);
+        INSERT INTO Users
+          (username, email, password_hash, role)
+        VALUES
+          ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+          ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+          ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+          ('sploot', 'spoot@example.com', 'supersecure', 'walker'),
+          ('edgar', 'edgar@allen.poe', 'raven333', 'walker');`);
     }
+
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
       await db.execute(`
-INSERT INTO
-  Dogs (owner_id, name, size)
-VALUES
-  ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
-  ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-  ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
-  ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
-  ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');`);
+        INSERT INTO
+          Dogs (owner_id, name, size)
+        VALUES
+          ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+          ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+          ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
+          ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
+          ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');`);
     }
   [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
