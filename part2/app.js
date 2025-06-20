@@ -6,7 +6,6 @@ require('dotenv').config();
 
 const db = require('./models/db');
 
-
 const app = express();
 
 // Middleware
