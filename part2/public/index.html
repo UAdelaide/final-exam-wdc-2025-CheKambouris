@@ -36,8 +36,8 @@
         };
       },
       methods: {
-        login() {
-          fetch('/api/users/login', {
+        async login() {
+          await fetch('/api/users/login', {
             method: 'POST',
             body: {
               username: this.username,
