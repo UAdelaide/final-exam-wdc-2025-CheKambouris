@@ -48,8 +48,8 @@
             }
           });
           if(res.ok) {
-            const resBody = await res.json();
-            window.location.replace(`${}`);
+            const { user } = await res.json();
+            window.location.replace(`${user.role}`);
           }
         }
       }
