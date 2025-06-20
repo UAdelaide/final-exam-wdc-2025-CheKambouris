@@ -49,7 +49,7 @@
           });
           if(res.ok) {
             const { user } = await res.json();
-            window.location.replace(`${user.role}`);
+            window.location.replace(`${user.role}-`);
           }
         }
       }
