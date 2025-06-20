@@ -56,7 +56,7 @@
         };
       },
       setup() {
-        onMounted(() => {
+        onMounted(async () => {
           const res = await fetch('/api/dogs');
           this.dogs = await res.json();
           console.log(this.dogs);
