@@ -27,14 +27,13 @@ let db;
     if (rows[0].count === 0) {
       await db.execute(`
 INSERT INTO Users
-	(username, email, password_hash, role)
+  (username, email, password_hash, role)
 VALUES
-	('alice123', 'alice@example.com', 'hashed123', 'owner'),
-	('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-	('carol123', 'carol@example.com', 'hashed789', 'owner'),
-	('sploot', 'spoot@example.com', 'supersecure', 'walker'),
-	('edgar', 'edgar@allen.poe', 'raven333', 'walker');
-      `);
+  ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+  ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+  ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+  ('sploot', 'spoot@example.com', 'supersecure', 'walker'),
+  ('edgar', 'edgar@allen.poe', 'raven333', 'walker');`);
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
