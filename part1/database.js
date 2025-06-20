@@ -10,8 +10,7 @@ async function connectToDatabase() {
     password: '' // Set your MySQL root password
   });
 
-  // Assume that the database has been setup
-
+  
   // Now connect to the created database
   db = await mysql.createConnection({
     host: 'localhost',
