@@ -56,17 +56,13 @@
         };
       },
       setup() {
-        
         onMounted(() => {
-          this.getDogs();
-        });
-      },
-      methods: {
-        async getDogs() {
           const res = await fetch('/api/dogs');
           this.dogs = await res.json();
           console.log(this.dogs);
-        },
+        });
+      },
+      methods: {
         async login() {
           const res = await fetch('/api/users/login', {
             method: 'POST',
