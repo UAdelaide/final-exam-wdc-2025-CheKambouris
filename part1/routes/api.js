@@ -69,7 +69,7 @@ router.get('/walkers/summary', async function(req, res, next) {
     FROM Users
     INNER JOIN WalkRatings
       ON WalkRatings.walker_id = Users.user_id
-    WHERE Users.role = 'walker';`
+    WHERE Users.role = 'walker';` // Implicit if there was a constraint
   );
   res.send(rows);
 });
