@@ -6,11 +6,12 @@ let pool = mysql.createPool({
   password: '' // Set your MySQL root password
 });
 
-async function insertData(db) {
+async function insertData() {
+    const conn = await pool.getConnection();
   // Insert data if table is empty
-    let [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    let [rows] = await conn.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
-      await db.execute(
+      await conn.execute(
       `INSERT INTO Users
           (username, email, password_hash, role)
         VALUES
@@ -22,9 +23,9 @@ async function insertData(db) {
 );
     }
 
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    [rows] = await conn.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
-      await db.execute(
+      await conn.execute(
       `INSERT INTO
           Dogs (owner_id, name, size)
         VALUES
@@ -36,9 +37,9 @@ async function insertData(db) {
 );
     }
 
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+    [rows] = await conn.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows[0].count === 0) {
-      await db.execute(
+      await conn.execute(
       `INSERT INTO WalkRequests
         (dog_id, requested_time, duration_minutes, location, status)
       VALUES
