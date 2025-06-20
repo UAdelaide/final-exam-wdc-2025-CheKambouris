@@ -63,9 +63,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS walker_username,
       SUM(rating) AS total_ratings,
       AVG(rating) as average_rating,
-      COUNT(Walk),
-      WalkRequests.location,
-      Users.username AS owner_username
+      COUNT(WalkRatings) as completed_walks
     FROM Users
     INNER JOIN WalkRatings
       ON WalkRatings.walker_id = Users.user_id
