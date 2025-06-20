@@ -68,6 +68,7 @@ router.get('/walkers/summary', async function(req, res, next) {
     INNER JOIN WalkRatings
       ON WalkRatings.walker_id = Users.user_id
     INNER JOIN WalkRequests
+      ON WalkRequests.
     WHERE Users.role = 'walker';` // Implicit if there was a constraint
   );
   res.send(rows);
