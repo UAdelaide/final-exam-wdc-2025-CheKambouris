@@ -1,24 +1,10 @@
 const mysql = require('mysql2/promise');
 
-let conn;
-
-async function connectToDatabase() {
-  // Connect to MySQL without specifying a database
-  const connection = await mysql.createConnection({
+let pool = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '' // Set your MySQL root password
   });
-
-  await connection.end();
-  // Now connect to the created database
-  return mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'DogWalkService'
-  });
-}
 
 async function insertData(db) {
   // Insert data if table is empty
