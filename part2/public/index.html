@@ -59,8 +59,7 @@
         const dogs = ref([]);
         onMounted(async () => {
           const res = await fetch('/api/dogs');
-          this.dogs = await res.json();
-          console.log(this.dogs);
+          dogs.value = await res.json();
         });
         return {dogs};
       },
