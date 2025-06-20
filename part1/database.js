@@ -9,9 +9,6 @@ async function connectToDatabase() {
     user: 'root',
     password: '' // Set your MySQL root password
   });
-
-  // Create the database if it doesn't exist
-  await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
   await connection.end();
   // Now connect to the created database
   return mysql.createConnection({
@@ -72,7 +69,6 @@ async function insertData(db) {
     conn = await connectToDatabase();
     // Assume database has been initialised using the dogwalks.sql
     await insertData(conn);
-
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
