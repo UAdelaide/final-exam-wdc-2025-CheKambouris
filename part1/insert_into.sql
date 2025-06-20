@@ -15,5 +15,6 @@
 `
 
 INSERT INTO Users (username, email, password_hash, role)
-VALUES
-(alice123, bobwalker)
+VALUES (alice123)
+
+LAST_INSERT_ID()
