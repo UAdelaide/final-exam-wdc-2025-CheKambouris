@@ -11,7 +11,7 @@
     <h1>Dog of the day!!!</h1>
     <img :src="dog_img" alt="">
     <p>St. Hubert Frankerter</p>
-    <button type="button">Change dog</button>
+    <button type="button" @click="changeDog">Change dog</button>
 </main>
 
 <script>
@@ -26,7 +26,8 @@ createApp({
         return {
             dog_img
         };
-    }
+    },
+    onMounted
 }).mount('#app');
 </script>
 </body>
