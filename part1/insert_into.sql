@@ -22,7 +22,7 @@ VALUES
 	(bobwalker, bob@example.com, hashed456, 'walker')
 	(carol123, carol@example.com, hashed789, 'owner')
 	(sploot, runner@example.com, supersecure, 'walker')
-	(edgar, edgar@allen.poe, raven333, 'owner')
+	(edgar, edgar@allen.poe, raven333hound, 'owner')
 ;
 INSERT INTO Dogs (owner_id, name, size)
 VALUES (LAST_INSERT_ID(), 'Max', 'medium');
