@@ -46,6 +46,7 @@ VALUES
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
   ((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');`);
+    }
   [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
       await db.execute(`INSERT INTO WalkRequests
