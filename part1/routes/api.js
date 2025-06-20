@@ -13,7 +13,7 @@ router.get('/dogs', async function(req, res, next) {
       INNER JOIN Users
       ON Dogs.owner_id = Users.user_id;`
     );
-    res.send(rows);
+    res.json(rows);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
@@ -37,7 +37,7 @@ router.get('/walkrequests/open', async function(req, res, next) {
         ON Dogs.owner_id = Users.user_id
       WHERE WalkRequests.status = 'open';`
     );
-    res.send(rows);
+    res.json(rows);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
@@ -59,7 +59,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       FROM Users
       WHERE Users.role = 'walker';` // Implicit if there was a constraint
     );
-    res.send(rows);
+    res.json(rows);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
