@@ -4,6 +4,9 @@ const session = require('express-session');
 const path = require('path');
 require('dotenv').config();
 
+const db = require('./models/db');
+
+
 const app = express();
 
 // Middleware
