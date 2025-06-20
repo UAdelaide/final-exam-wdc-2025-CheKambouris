@@ -37,7 +37,9 @@
       },
       methods: {
         login() {
-          fetch('/api/users/login', )
+          fetch('/api/users/login', {
+            body: this.username,
+          })
         }
       }
     }).mount('#app');
