@@ -1,13 +1,4 @@
 `
-    Five users:
-        A user with the username alice123, email alice@example.com, password hash hashed123, and role owner.
-        A user with the username bobwalker, email bob@example.com, password hash hashed456, and role walker.
-        A user with the username carol123, email carol@example.com, password hash hashed789, and role owner.
-        Two more users with details of your choosing.
-    Five dogs:
-        A dog named Max, who is medium-sized and owned by alice123.
-        A dog named Bella, who is small and owned by carol123.
-        Three more dogs with details of your choosing.
     Five walk requests:
         A request for Max at 2025-06-10 08:00:00 for 30 minutes at Parklands, with status open.
         A request for Bella at 2025-06-10 09:30:00 for 45 minutes at Beachside Ave, with status accepted.
@@ -30,7 +21,13 @@ VALUES
 	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
 	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
 	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');
-INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
-VALUES (LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open')
+INSERT INTO WalkRequests
+	(dog_id, requested_time, duration_minutes, location, status)
+VALUES
+	(LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open'),
+	(LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open'),
+	(LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open'),
+	(LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open'),
+	(LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open');
 COMMIT;
 
