@@ -18,7 +18,8 @@ createApp({
     setup() {
         const dog_img = ref('');
         onMounted(async () => {
-            dog_img.value = await fetch('https://dog.ceo/api/breeds/image/random');
+            const res = await fetch('https://dog.ceo/api/breeds/image/random');
+            dog_img.value
         });
         return {}
     }
