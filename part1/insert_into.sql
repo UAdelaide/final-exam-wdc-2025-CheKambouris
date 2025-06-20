@@ -22,4 +22,3 @@ VALUES
 	((SELECT dog_id FROM Dogs WHERE name = 'Tom', '2025-06-11T09:30:00'), 25, 'Parklands', 'cancelled'),
 	((SELECT dog_id FROM Dogs WHERE name = 'Jerry', '2025-06-11T012:30:00'), 40, 'Parklands', 'open'),
 	((SELECT dog_id FROM Dogs WHERE name = 'Sanders', '2025-06-11T014:30:00'), 120, 'Parklands', 'accepted');
-COMMIT;
