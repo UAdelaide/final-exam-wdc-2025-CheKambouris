@@ -28,7 +28,7 @@ createApp({
         };
     },
     async changeDog() {
-        const res = await fetch('https://dog.ceo/api/breeds/image/random');
+        const res = await fetch('https://dog.ceo/api/breeds/image/random').then();
         dog_img.value = (await res.json()).message;
     }
 }).mount('#app');
