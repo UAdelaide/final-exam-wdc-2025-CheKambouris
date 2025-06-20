@@ -1,4 +1,4 @@
-const mysql = 
+const mysql = require('mysql')
 
 let db;
 
