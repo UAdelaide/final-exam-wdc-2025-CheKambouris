@@ -63,7 +63,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS walker_username,
       (SELECT SUM(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) AS total_ratings,
       (SELECT AVG(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) as average_rating,
-      (SELECT COUNT(WalkApplications) FROM WalkApplications
+      (SELECT COUNT(*) FROM WalkApplications
         INNER JOIN WalkRequests
         ON WalkApplications.request_id = WalkRequests.request_id
         WHERE WalkApplications.status = 'accepted' AND WalkRequests.status = 'completed'
