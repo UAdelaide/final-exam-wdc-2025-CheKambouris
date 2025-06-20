@@ -62,12 +62,12 @@ router.get('/walkers/summary', async function(req, res, next) {
     `SELECT
       Users.username AS walker_username,
       SUM() AS dog_name,
-      WalkRequests.requested_time,
+      AVG() as average_rating,
       WalkRequests.duration_minutes,
       WalkRequests.location,
       Users.username AS owner_username
     FROM Users
-    INNER JOIN Dogs
+    INNER JOIN WalkRatings
       ON WalkRatings.walker_id = Users.user_id
     WHERE WalkRequests.status = 'open';`
   );
