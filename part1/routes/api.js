@@ -6,8 +6,9 @@ router.get('/dogs', function(req, res, next) {
   const [rows] = conn.execute(
     `SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username
     FROM Dogs
-    INNER JOIN Users`
-);
+    INNER JOIN Users
+    ON Dogs.owner_id = Users.user_id;`
+  );
   res.send(rows.map((row) => ({
     dog_name: row.dog_name,
     size: row.size,
