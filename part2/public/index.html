@@ -38,7 +38,7 @@
         <th>{{ dog.name }}</th>
         <th>{{ dog.size }}</th>
         <th>{{ dog.owner_id }}</th>
-        <th><img src="" alt=""></th>
+        <th><img src="https://dog.ceo/api/breeds/image/random" alt=""></th>
       </tr>
     </tbody>
   </table>
@@ -49,6 +49,7 @@
     createApp({
       data() {
         return {
+          dogs: 
           message: 'Welcome to the Dog Walking Service!',
           username: '',
           password: ''
