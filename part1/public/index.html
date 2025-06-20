@@ -9,7 +9,7 @@
 <body>
 <main id='app'>
     <h1>Dog of the day!!!</h1>
-    <img @click="updateDogImg()" :src="dog_img" alt="">
+    <img :src="dog_img" alt="">
     <p>St. Hubert Frankerter</p>
 </main>
 
@@ -25,12 +25,6 @@ createApp({
         return {
             dog_img
         };
-    },
-    methods: {
-        async updateDogImg() {
-            const res = await fetch('https://dog.ceo/api/breeds/image/random');
-            this.dog_img.value = (await res.json()).message;
-        }
     }
 }).mount('#app');
 </script>
