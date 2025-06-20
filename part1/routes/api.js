@@ -13,12 +13,11 @@ router.get('/dogs', async function(req, res, next) {
       INNER JOIN Users
       ON Dogs.owner_id = Users.user_id;`
     );
+    res.send(rows);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);
-    return;
   }
-  res.send(rows);
 });
 
 router.get('/walkrequests/open', async function(req, res, next) {
