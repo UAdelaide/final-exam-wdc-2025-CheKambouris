@@ -47,9 +47,9 @@ router.get('/walkrequests/open', async function(req, res, next) {
     ON WalkRequests.owner_id = Users.user_id;`
   );
   res.send(rows.map((row) => ({
-    request_id:
-    dog_name:
-    requested_time:
+    request_id: row.request_id,
+    dog_name: row.dog_name,
+    requested_time: row.requested_time
     duration_minutes:
     location:
     owner_username:
