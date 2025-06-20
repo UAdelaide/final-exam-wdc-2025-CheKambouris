@@ -27,9 +27,9 @@ INSERT INTO
 VALUES
 	((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
 	((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'medium'),
+	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Tom', 'small'),
 	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Jerry', 'medium'),
-	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Max', 'medium');
+	((SELECT user_id FROM Users WHERE username = 'sploot'), 'Sanders', 'large');
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 VALUES (LAST_INSERT_ID(), '2025-06-10T09:30:00', 30, 'Parklands', 'open')
 COMMIT;
