@@ -63,10 +63,11 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS walker_username,
       SUM(rating) AS total_ratings,
       AVG(rating) as average_rating,
-      COUNT(WalkRatings) as completed_walks
+      COUNT(WalkRequests) as completed_walks
     FROM Users
     INNER JOIN WalkRatings
       ON WalkRatings.walker_id = Users.user_id
+    INNER JOIN WalkRequests
     WHERE Users.role = 'walker';` // Implicit if there was a constraint
   );
   res.send(rows);
