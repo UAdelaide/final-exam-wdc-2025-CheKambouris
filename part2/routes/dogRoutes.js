@@ -7,10 +7,8 @@ router.get('/', async (req, res) => {
   if (req.session.user) {
     try {
     const [rows] = await db.execute(
-      `SELECT *
-      FROM Dogs
-      INNER JOIN Users
-      ON Dogs.owner_id = ?;`,
+      `SELECT * FROM Dogs
+      INNER JOIN Users ON Dogs.owner_id = ?;`,
       req.session.user.user_id
     );
     res.json(rows);
