@@ -32,13 +32,13 @@
         </tr>
       </thead>
       <tbody>
-      <div v-for="dog in dogs">
-        <div>{{ dog.dog_id }}</div>
-        <div>{{ dog.name }}</div>
-        <div>{{ dog.size }}</div>
-        <div>{{ dog.owner_id }}</div>
-        <div><img src="https://dog.ceo/api/breeds/image/random" alt=""></div>
-      </div>
+        <tr v-for="dog in dogs">
+        <th>{{ dog.dog_id }}</th>
+        <th>{{ dog.name }}</th>
+        <th>{{ dog.size }}</th>
+        <th>{{ dog.owner_id }}</th>
+        <th><img src="https://dog.ceo/api/breeds/image/random" alt=""></th>
+      </tr>
       </tbody>
     </table>
   </div>
