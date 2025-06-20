@@ -69,7 +69,7 @@ async function insertData() {
 
 (async () => {
   try {
-
+    await connectToDatabase();
     await insertData();
 
   } catch (err) {
