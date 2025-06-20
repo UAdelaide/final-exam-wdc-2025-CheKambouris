@@ -3,7 +3,7 @@ var router = express.Router();
 const conn = require('../database');
 
 router.get('/dogs', function(req, res, next) {
-  conn
+  conn.execute('');
 });
 
 router.get('/walkrequests/open', function(req, res, next) {
