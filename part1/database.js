@@ -21,8 +21,6 @@ async function connectToDatabase() {
     database: 'DogWalkService'
   });
 }
-async function setupDatabase(db) {
-}
 
 async function insertData(db) {
   // Insert data if table is empty
