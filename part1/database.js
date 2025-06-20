@@ -70,7 +70,7 @@ async function insertData(db) {
 (async () => {
   try {
     conn = await connectToDatabase();
-    await setupDatabase(conn);
+    // Assume database has been initialised using the dogwalks.sql
     await insertData(conn);
 
   } catch (err) {
