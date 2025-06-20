@@ -6,16 +6,16 @@ const db = require('../models/db');
 router.get('/', async (req, res) => {
   if (req.session.user) {
     try {
-    const [rows] = await db.execute(
-      `SELECT * FROM Dogs
-      INNER JOIN Users ON Dogs.owner_id = ?;`,
-      req.session.user.user_id
-    );
-    res.json(rows);
-  } catch (err) {
-    console.log(err);
-    res.sendStatus(500);
-  }
+      const [rows] = await db.execute(
+        `SELECT * FROM Dogs
+        INNER JOIN Users ON Dogs.owner_id = ?;`,
+        req.session.user.user_id
+      );
+      res.json(rows);
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
   } else {
     res.send(401);
   }
