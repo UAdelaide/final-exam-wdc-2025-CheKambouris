@@ -13,10 +13,10 @@
 </main>
 
 <script>
-const { createApp } = Vue;
+const { createApp, onMounted } = Vue;
 createApp({
     setup() {
-        
+        onMounted();
         return {}
     }
 }).mount('#app');
