@@ -63,7 +63,7 @@ router.get('/walkers/summary', async function(req, res, next) {
       Users.username AS walker_username,
       (SELECT SUM(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) AS total_ratings,
       (SELECT AVG(rating) FROM WalkRatings WHERE WalkRatings.walker_id = Users.user_id) as average_rating,
-      (COUNT()) as completed_walks
+      (SELECT COUNT(*) FROM WalkApplications ) as completed_walks
     FROM Users
     WHERE Users.role = 'walker';` // Implicit if there was a constraint
   );
