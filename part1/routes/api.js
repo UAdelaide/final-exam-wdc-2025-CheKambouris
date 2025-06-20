@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 const pool = require('../database');
 
-router.get('/dogs', function(req, res, next) {
-  const [rows] = pool.query(
+router.get('/dogs', async function(req, res, next) {
+  const [rows] = await pool.query(
     `SELECT Dogs.dog_name, Dogs.size, User.username AS owner_username
     FROM Dogs
     INNER JOIN Users
