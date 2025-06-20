@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
-let pool = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '' // Set your MySQL root password
-  });
+let pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '' // Set your MySQL root password
+});
 
 async function insertData(db) {
   // Insert data if table is empty
@@ -53,9 +53,8 @@ async function insertData(db) {
 
 (async () => {
   try {
-    pool = await connectToDatabase();
     // Assume database has been initialised using the dogwalks.sql
-    await insertData(pool.createConnection());
+    await insertData(pool.getConnection());
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
