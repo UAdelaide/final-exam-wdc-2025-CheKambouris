@@ -128,8 +128,8 @@
         };
       },
       methods: {
-        logout() {
-          await fetch('/api/users/logout', {});
+        async logout() {
+          await fetch('/api/users/logout', {method: 'POST'});
         }
       }
     }).mount('#app');
