@@ -60,8 +60,11 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', async (req, res) => {
+  if (req.session.user) {
+    
+  }
   req.session.user = undefined;
-  
+  res.send(200);
 });
 
 module.exports = router;
