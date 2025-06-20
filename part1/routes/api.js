@@ -61,7 +61,7 @@ router.get('/walkers/summary', async function(req, res, next) {
   const [rows] = await pool.query(
     `SELECT
       Users.username AS walker_username,
-      SUM(rating) AS total_ratings,
+      (SELECT SUM(rating)) AS total_ratings,
       AVG(rating) as average_rating,
       COUNT(WalkRequests) as completed_walks
     FROM Users
