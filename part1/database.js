@@ -25,7 +25,7 @@ let db;
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
-      await db.(fs.readFileSync('insert_into.sql', 'utf-8'));
+      await db.execute(fs.readFileSync('insert_into.sql', 'utf-8'));
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
