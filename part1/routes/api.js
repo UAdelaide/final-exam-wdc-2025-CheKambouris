@@ -21,22 +21,27 @@ router.get('/dogs', async function(req, res, next) {
 });
 
 router.get('/walkrequests/open', async function(req, res, next) {
-  const [rows] = await pool.query(
-    `SELECT
-      WalkRequests.request_id,
-      Dogs.name AS dog_name,
-      WalkRequests.requested_time,
-      WalkRequests.duration_minutes,
-      WalkRequests.location,
-      Users.username AS owner_username
-    FROM WalkRequests
-    INNER JOIN Dogs
-      ON WalkRequests.dog_id = Dogs.dog_id
-    INNER JOIN Users
-      ON Dogs.owner_id = Users.user_id
-    WHERE WalkRequests.status = 'open';`
-  );
-  res.send(rows);
+  try {
+    const [rows] = await pool.query(
+      `SELECT
+        WalkRequests.request_id,
+        Dogs.name AS dog_name,
+        WalkRequests.requested_time,
+        WalkRequests.duration_minutes,
+        WalkRequests.location,
+        Users.username AS owner_username
+      FROM WalkRequests
+      INNER JOIN Dogs
+        ON WalkRequests.dog_id = Dogs.dog_id
+      INNER JOIN Users
+        ON Dogs.owner_id = Users.user_id
+      WHERE WalkRequests.status = 'open';`
+    );
+    res.send(rows);
+  } catch (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
 });
 
 /**
