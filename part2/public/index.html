@@ -59,8 +59,9 @@
         async function getDogs() {
 
         }
-        on
-        getDogs
+        onMounted(() => {
+          getDogs();
+        });
       },
       methods: {
         async login() {
