@@ -67,7 +67,7 @@ async function insertData(db) {
 
 (async () => {
   try {
-    conn = await connectToDatabase();
+    pool = await connectToDatabase();
     // Assume database has been initialised using the dogwalks.sql
     await insertData(conn);
   } catch (err) {
@@ -75,4 +75,4 @@ async function insertData(db) {
   }
 })();
 
-module.exports = conn;
+module.exports = pool;
