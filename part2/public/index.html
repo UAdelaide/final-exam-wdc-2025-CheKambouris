@@ -37,7 +37,7 @@
         <th>{{ dog.name }}</th>
         <th>{{ dog.size }}</th>
         <th>{{ dog.owner_id }}</th>
-        <th><img src="getImg" alt=""></th>
+        <th><img :src="dog.img" alt=""></th>
       </tr>
       </tbody>
     </table>
@@ -59,6 +59,7 @@
         onMounted(async () => {
           const res = await fetch('/api/dogs');
           dogs.value = await res.json();
+          
         });
         return {dogs};
       },
