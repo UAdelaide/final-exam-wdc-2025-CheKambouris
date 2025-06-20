@@ -47,6 +47,7 @@ router.get('/walkrequests/open', async function(req, res, next) {
     ON WalkRequests.owner_id = Users.user_id;`
   );
   res.send(rows.map((row) =>
+    
   ));
 });
 
