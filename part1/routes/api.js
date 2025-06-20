@@ -36,8 +36,8 @@ router.get('/walkrequests/open', async function(req, res, next) {
   const [rows] = await pool.query(
     `SELECT
       WalkRequests.request_id,
-      Dogs.name,
-      Users.username AS owner_username
+      Dogs.name AS dog_name,
+      Users.requested_time AS owner_username
     FROM WalkRequests
     INNER JOIN Users
       ON WalkRequests.owner_id = Users.user_id
