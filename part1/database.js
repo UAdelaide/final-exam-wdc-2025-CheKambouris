@@ -3,7 +3,8 @@ const mysql = require('mysql2/promise');
 let pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: '' // Set your MySQL root password
+  password: '', // Set your MySQL root password
+  database: ''
 });
 
 async function insertData() {
