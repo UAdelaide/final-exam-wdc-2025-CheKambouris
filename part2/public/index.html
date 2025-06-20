@@ -37,7 +37,7 @@
       },
       methods: {
         async login() {
-          await fetch('/api/users/login', {
+          const res = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({
               username: this.username,
@@ -47,7 +47,9 @@
               'Content-Type': 'application/json'
             }
           });
-          
+          if(res.ok) {
+            
+          }
         }
       }
     }).mount('#app');
