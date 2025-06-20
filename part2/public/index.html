@@ -55,7 +55,11 @@
           password: ''
         };
       },
-      setup()
+      setup() {
+        async function name(params) {
+          
+        }
+      },
       methods: {
         async login() {
           const res = await fetch('/api/users/login', {
