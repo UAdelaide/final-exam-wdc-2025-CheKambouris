@@ -46,9 +46,9 @@ router.get('/walkrequests/open', async function(req, res, next) {
     INNER JOIN Users
     ON WalkRequests.owner_id = Users.user_id;`
   );
-  res.send(rows.map((row) =>
+  res.send(rows.map((row) => ({
     
-  ));
+    })));
 });
 
 router.get('/walkers/summary', function(req, res, next) {
